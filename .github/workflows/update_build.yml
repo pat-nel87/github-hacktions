@@ -1,0 +1,16 @@
+name: update build test
+on:
+  workflow_dispatch:
+
+jobs:
+  increment_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate build number
+      uses: einaregilsson/build-number@v3
+      with:
+        token: ${{ secrets.github_token}}
+    - name: print number to console
+      run: echo "Build number is $BUILD_NUMBER"
+      
+  
